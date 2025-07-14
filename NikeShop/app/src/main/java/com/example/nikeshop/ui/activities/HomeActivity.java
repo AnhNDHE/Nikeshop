@@ -10,11 +10,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nikeshop.R;
+import com.example.nikeshop.adapters.CategoryAdapter;
+import com.example.nikeshop.adapters.ProductAdapter;
+import com.example.nikeshop.data.local.entity.Category;
+import com.example.nikeshop.data.repositories.CategoryRepository;
+import com.example.nikeshop.data.repositories.ProductRepository;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends BottomMenuActivity {
+    private ProductAdapter productAdapter;
+    private ProductRepository productRepository;
+    private RecyclerView recyclerView;
+    private CategoryAdapter categoryAdapter;
+    private CategoryRepository categoryRepository;
+    private RecyclerView recyclerViewCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,28 +42,35 @@ public class HomeActivity extends BottomMenuActivity {
         });
         setupBottomMenu(R.id.nav_home);
 
-        // Product Card Clicks
-        ImageView shoeImg1 = findViewById(R.id.shoe_img1);
-
-        View.OnClickListener detailListener = v -> {
+        recyclerView = findViewById(R.id.recycler_view_products);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        productAdapter = new ProductAdapter(this);
+        recyclerView.setAdapter(productAdapter);
+        productAdapter.setOnProductClickListener(product -> {
             Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
+            // Có thể truyền id sản phẩm qua intent nếu cần
+            intent.putExtra("product_id", product.getId());
             startActivity(intent);
-        };
-        if (shoeImg1 != null) shoeImg1.setOnClickListener(detailListener);
+        });
 
-        ImageView shoeImg2 = findViewById(R.id.shoe_img2);
+        productRepository = new ProductRepository(this);
+        productRepository.getAllProducts(products -> runOnUiThread(() -> {
+            productAdapter.setProducts(products);
+        }));
 
-        if (shoeImg2 != null) shoeImg2.setOnClickListener(detailListener);
-
-
-        ImageView shoeImg3 = findViewById(R.id.shoe_img3);
-
-        if (shoeImg3 != null) shoeImg3.setOnClickListener(detailListener);
-
-
-        ImageView shoeImg4 = findViewById(R.id.shoe_img4);
-
-        if (shoeImg4 != null) shoeImg4.setOnClickListener(detailListener);
+        recyclerViewCategories = findViewById(R.id.recycler_view_categories);
+        recyclerViewCategories.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        categoryAdapter = new CategoryAdapter(this);
+        recyclerViewCategories.setAdapter(categoryAdapter);
+        categoryAdapter.setOnCategoryClickListener(category -> {
+            Intent intent = new Intent(HomeActivity.this, ProductListActivity.class);
+            intent.putExtra("category_id", category.getId());
+            startActivity(intent);
+        });
+        categoryRepository = new CategoryRepository(this);
+        categoryRepository.getAllCategories(categories -> runOnUiThread(() -> {
+            categoryAdapter.setCategories(categories);
+        }));
 
         ImageView btnCart = findViewById(R.id.btn_cart);
         btnCart.setOnClickListener(new View.OnClickListener() {
@@ -60,16 +81,6 @@ public class HomeActivity extends BottomMenuActivity {
             }
         });
 
-        // Sự kiện click cho icon Sneakers chuyển sang ProductListActivity
-        ImageView iconSneakers = findViewById(R.id.icon_sneakers);
-        if (iconSneakers != null) {
-            iconSneakers.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(HomeActivity.this, ProductListActivity.class);
-                    startActivity(intent);
-                }
-            });
+
         }
     }
-}

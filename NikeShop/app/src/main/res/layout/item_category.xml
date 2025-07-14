@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="0dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
+
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/img_category_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_sneakers"
+            android:background="@drawable/category_unselected_bg"
+            android:scaleType="centerInside"
+            android:padding="12dp" />
+        <!-- Có thể thêm hiệu ứng viền chọn ở đây nếu cần -->
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="6dp"
+        android:gravity="center" />
+</LinearLayout>

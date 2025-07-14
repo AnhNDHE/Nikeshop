@@ -8,6 +8,9 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+import java.util.List;
+import androidx.room.TypeConverters;
+import com.example.nikeshop.data.SizeListConverter;
 
 @Entity(
         tableName = "products",
@@ -19,6 +22,7 @@ import java.util.Date;
         ),
         indices = @Index(value = "category_id", name = "index_product_category_id")
 )
+@TypeConverters(SizeListConverter.class)
 public class Product {
 
     @PrimaryKey(autoGenerate = true)
@@ -35,8 +39,8 @@ public class Product {
     @ColumnInfo(name = "price")
     private double price;
 
-    @ColumnInfo(name = "size")
-    private String size;
+    @ColumnInfo(name = "sizes")
+    private List<String> sizes;
 
     @ColumnInfo(name = "stock_quantity")
     private int stockQuantity;
@@ -76,7 +80,7 @@ public class Product {
     public Product(@NonNull String name,
                    String description,
                    double price,
-                   String size,
+                   List<String> sizes,
                    int stockQuantity,
                    String imageUrl,
                    @NonNull int categoryId,
@@ -90,7 +94,7 @@ public class Product {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.size = size;
+        this.sizes = sizes;
         this.stockQuantity = stockQuantity;
         this.imageUrl = imageUrl;
         this.categoryId = categoryId;
@@ -139,12 +143,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getSize() {
-        return size;
+    public List<String> getSizes() {
+        return sizes;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setSizes(List<String> sizes) {
+        this.sizes = sizes;
     }
 
     public int getStockQuantity() {
@@ -235,7 +239,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", size='" + size + '\'' +
+                ", sizes=" + sizes +
                 ", stockQuantity=" + stockQuantity +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", categoryId=" + categoryId +
