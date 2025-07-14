@@ -180,4 +180,10 @@ public class User {
                 ", deletedAt=" + deletedAt +
                 '}';
     }
+
+    public void setName(String name) {
+        this.username = name;
+    }
+
+
 }
