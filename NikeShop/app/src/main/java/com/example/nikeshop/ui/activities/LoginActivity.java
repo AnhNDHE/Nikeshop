@@ -14,8 +14,7 @@ import android.widget.Toast;
 import com.example.nikeshop.data.local.AppDatabase;
 import com.example.nikeshop.data.local.dao.UserDao;
 import com.example.nikeshop.data.local.entity.User;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 
 import androidx.activity.EdgeToEdge;
