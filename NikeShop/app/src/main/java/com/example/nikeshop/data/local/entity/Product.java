@@ -163,6 +163,16 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
+    @Ignore
+    private int cartQuantity; // số lượng trong giỏ
+
+    public int getCartQuantity() {
+        return cartQuantity;
+    }
+
+    public void setCartQuantity(int cartQuantity) {
+        this.cartQuantity = cartQuantity;
+    }
     @NonNull
     public int getCategoryId() {
         return categoryId;

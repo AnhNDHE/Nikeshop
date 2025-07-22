@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "90e39001b7e10f382f2728e1ec370bd5",
+    "identityHash": "d26a44f65dd0e8e1720f12f6c353377d",
     "entities": [
       {
         "tableName": "users",
@@ -714,7 +714,7 @@
       },
       {
         "tableName": "order_details",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `order_id` INTEGER NOT NULL, `product_id` INTEGER NOT NULL, `quantity` INTEGER NOT NULL, `price` REAL NOT NULL, `created_at` INTEGER, `updated_at` INTEGER, `deleted_at` INTEGER, FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`product_id`) REFERENCES `products`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `order_id` INTEGER NOT NULL, `product_id` INTEGER NOT NULL, `product_name` TEXT, `product_size` TEXT, `product_image_url` TEXT, `product_brand` TEXT, `product_sku` TEXT, `quantity` INTEGER NOT NULL, `product_price` REAL NOT NULL, `price` REAL NOT NULL, `created_at` INTEGER, `updated_at` INTEGER, `deleted_at` INTEGER, FOREIGN KEY(`order_id`) REFERENCES `orders`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -735,9 +735,45 @@
             "notNull": true
           },
           {
+            "fieldPath": "productName",
+            "columnName": "product_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "productSize",
+            "columnName": "product_size",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "productImageUrl",
+            "columnName": "product_image_url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "productBrand",
+            "columnName": "product_brand",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "productSku",
+            "columnName": "product_sku",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
             "fieldPath": "quantity",
             "columnName": "quantity",
             "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productPrice",
+            "columnName": "product_price",
+            "affinity": "REAL",
             "notNull": true
           },
           {
@@ -780,15 +816,6 @@
             ],
             "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_order_details_order_id` ON `${TABLE_NAME}` (`order_id`)"
-          },
-          {
-            "name": "index_order_details_product_id",
-            "unique": false,
-            "columnNames": [
-              "product_id"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_order_details_product_id` ON `${TABLE_NAME}` (`product_id`)"
           }
         ],
         "foreignKeys": [
@@ -802,17 +829,6 @@
             "referencedColumns": [
               "id"
             ]
-          },
-          {
-            "table": "products",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "product_id"
-            ],
-            "referencedColumns": [
-              "id"
-            ]
           }
         ]
       }
@@ -820,7 +836,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '90e39001b7e10f382f2728e1ec370bd5')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd26a44f65dd0e8e1720f12f6c353377d')"
     ]
   }
 }

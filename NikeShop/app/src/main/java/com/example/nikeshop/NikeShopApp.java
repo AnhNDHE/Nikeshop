@@ -26,7 +26,7 @@ public class NikeShopApp extends Application {
         ).fallbackToDestructiveMigration().build();
         Log.d("DEBUG_DB", getDatabasePath("nike_shop_db.db").getAbsolutePath());
         // Init seeder gen data
-        // Seeder.seed(this);
+        Seeder.seed(this);
     }
 
     public static NikeShopApp getInstance() {

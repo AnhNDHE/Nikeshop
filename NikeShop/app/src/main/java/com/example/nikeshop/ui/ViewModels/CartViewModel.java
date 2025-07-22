@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.nikeshop.data.local.entity.Cart;
+import com.example.nikeshop.data.local.entity.Product;
 import com.example.nikeshop.data.repositories.CartRepository;
 
 import java.util.List;
@@ -20,33 +21,49 @@ public class CartViewModel extends AndroidViewModel {
         repository = new CartRepository(application);
     }
 
-    // Lấy danh sách cart của user (quan sát được)
-    public LiveData<List<Cart>> getCartItems(int userId) {
+    public LiveData<List<Product>> getCartByUser(int userId) {
         return repository.getCartByUser(userId);
     }
 
-    // Thêm sản phẩm vào giỏ
     public void addToCart(int userId, int productId, int quantity) {
         repository.addToCart(userId, productId, quantity);
     }
 
-    // Cập nhật số lượng sản phẩm
     public void updateQuantity(int userId, int productId, int quantity) {
         repository.updateQuantity(userId, productId, quantity);
     }
 
-    // Xoá sản phẩm khỏi giỏ
     public void removeFromCart(int userId, int productId) {
         repository.deleteItem(userId, productId);
     }
 
-    // Xoá toàn bộ giỏ hàng
     public void clearCart(int userId) {
         repository.clearCart(userId);
     }
 
-    // Lấy tổng số sản phẩm trong giỏ
     public LiveData<Integer> getTotalItemCount(int userId) {
         return repository.getTotalItemsInCart(userId);
     }
+
+    public void increaseQuantity(int userId, int productId) {
+        repository.increaseQuantity(userId, productId);
+    }
+
+    public void decreaseQuantity(int userId, int productId) {
+        repository.decreaseQuantity(userId, productId);
+    }
+
+    public void insertAll(List<Cart> carts) {
+        repository.insertAll(carts);
+    }
+
+    public void deleteById(int cartId) {
+        repository.deleteById(cartId);
+    }
+
+    public LiveData<List<Product>> getCartWithProducts(int userId) {
+        return repository.getCartProductsLive(userId);
+    }
+
+
 }
