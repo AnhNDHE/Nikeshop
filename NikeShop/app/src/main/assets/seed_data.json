@@ -159,94 +159,124 @@
     }
   ],
   "orders": [
-    {
-      "userId": 2,
-      "orderDate": "2025-07-20T10:10:28.312734",
-      "totalPrice": 300.0,
-      "status": "pending",
-      "paymentMethod": "COD",
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "userId": 2,
-      "orderDate": "2025-07-20T10:10:28.312734",
-      "totalPrice": 600.0,
-      "status": "completed",
-      "paymentMethod": "Credit Card",
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "userId": 3,
-      "orderDate": "2025-07-20T10:10:28.312734",
-      "totalPrice": 250.0,
-      "status": "canceled",
-      "paymentMethod": "COD",
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "userId": 4,
-      "orderDate": "2025-07-20T10:10:28.312734",
-      "totalPrice": 80.0,
-      "status": "completed",
-      "paymentMethod": "Momo",
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    }
-  ],
-  "orderDetails": [
-    {
-      "orderId": 1,
-      "productId": 1,
-      "quantity": 1,
-      "price": 300.0,
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "orderId": 2,
-      "productId": 2,
-      "quantity": 2,
-      "price": 250.0,
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "orderId": 2,
-      "productId": 3,
-      "quantity": 1,
-      "price": 350.0,
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "orderId": 3,
-      "productId": 2,
-      "quantity": 1,
-      "price": 250.0,
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    },
-    {
-      "orderId": 4,
-      "productId": 5,
-      "quantity": 1,
-      "price": 80.0,
-      "createdAt": "2025-07-20T10:10:28.312734",
-      "updatedAt": "2025-07-20T10:10:28.312734",
-      "deletedAt": null
-    }
-  ],
+  {
+    "id": 1,
+    "userId": 2,
+    "orderDate": "2025-07-20T10:10:28.312734",
+    "totalPrice": 300.0,
+    "status": "pending",
+    "paymentMethod": "COD",
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "orderDate": "2025-07-20T10:10:28.312734",
+    "totalPrice": 600.0,
+    "status": "completed",
+    "paymentMethod": "Credit Card",
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "orderDate": "2025-07-20T10:10:28.312734",
+    "totalPrice": 250.0,
+    "status": "canceled",
+    "paymentMethod": "COD",
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "id": 4,
+    "userId": 4,
+    "orderDate": "2025-07-20T10:10:28.312734",
+    "totalPrice": 80.0,
+    "status": "completed",
+    "paymentMethod": "Momo",
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  }
+],
+"orderDetails": [
+  {
+    "orderId": 1,
+    "productId": 1,
+    "productName": "Nike Air Max 97",
+    "productSize": "42",
+    "productImageUrl": "https://static.nike.com/a/images/t_default/6a3671b8-f115-44f6-9ab6-3798d55210eb/custom-nike-air-max-97-shoes-by-you.png",
+    "productBrand": "Nike",
+    "productSku": "NAM97-001",
+    "quantity": 1,
+    "price": 300.0,
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "orderId": 2,
+    "productId": 2,
+    "productName": "Nike ZoomX",
+    "productSize": "41",
+    "productImageUrl": "https://bizweb.dktcdn.net/100/347/092/products/nike-zoomx-invincible-run-3-black-white-dr2615-001-01-1.jpg?v=1701665002793",
+    "productBrand": "Nike",
+    "productSku": "NZX-002",
+    "quantity": 2,
+    "price": 250.0,
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "orderId": 2,
+    "productId": 3,
+    "productName": "Nike LeBron",
+    "productSize": "44",
+    "productImageUrl": "https://bizweb.dktcdn.net/thumb/1024x1024/100/340/361/products/7-ca927720-4396-463a-a096-a032ff71800a.jpg?v=1722053309053",
+    "productBrand": "Nike",
+    "productSku": "NLB-003",
+    "quantity": 1,
+    "price": 350.0,
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "orderId": 3,
+    "productId": 2,
+    "productName": "Nike ZoomX",
+    "productSize": "41",
+    "productImageUrl": "https://bizweb.dktcdn.net/100/347/092/products/nike-zoomx-invincible-run-3-black-white-dr2615-001-01-1.jpg?v=1701665002793",
+    "productBrand": "Nike",
+    "productSku": "NZX-002",
+    "quantity": 1,
+    "price": 250.0,
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  },
+  {
+    "orderId": 4,
+    "productId": 5,
+    "productName": "Nike Sandal",
+    "productSize": "41",
+    "productImageUrl": "https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/2bacfb05-ddc3-4341-9215-5d0f26d6e573/NIKE+CALM+SANDAL.png",
+    "productBrand": "Nike",
+    "productSku": "NSA-005",
+    "quantity": 1,
+    "price": 80.0,
+    "createdAt": "2025-07-20T10:10:28.312734",
+    "updatedAt": "2025-07-20T10:10:28.312734",
+    "deletedAt": null
+  }
+]
+,
   "carts": [
     {
       "userId": 2,
